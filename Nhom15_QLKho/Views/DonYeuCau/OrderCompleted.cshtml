@@ -1,0 +1,91 @@
+﻿@model Nhom15_QLKho.Models.PhieuXuatKho
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Style for the heading */
+    h2 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    /* Style for the section headers */
+    h3 {
+        font-size: 20px;
+        color: #555;
+        margin-top: 20px;
+    }
+
+    /* Style for the paragraph */
+    p {
+        font-size: 16px;
+        color: blue;
+    }
+
+    /* Style for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    /* Style for table headers */
+    th {
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Style for table cells */
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    /* Style for alternating rows */
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Style for total price section */
+    .total-price {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+    }
+
+</style>
+<h2>Xuất Kho Hoàn Tất</h2>
+
+<h3>Chi tiết Phiếu Xuất Kho</h3>
+<p> ID: @Model.Id</p>
+<p> Ngày: @Model.NgayXuat</p>
+<p>Địa chỉ giao hàng: @Model.Address</p>
+<p>Ghi chú: @Model.Notes</p>
+<!-- Display other order details as needed -->
+
+<h3>Mặt Hàng Đã Đặt</h3>
+<table>
+    <tr>
+        <th>Sản Phẩm</th>
+        <th>Số Lượng</th>
+        <th>Giá</th>
+        <th>Tổng</th>
+    </tr>
+    @foreach (var item in Model.CT_PhieuXuatKhos)
+    {
+        <tr>
+            <td>@item.HangHoaId</td>
+            <td>@item.SoLuongXuat</td>
+            <td>@item.TongGiaTri</td>
+
+        </tr>
+    }
+</table>
+
+<h3>Tổng Giá: @Model.TongGiaTri</h3>
+
+<a asp-controller="Product" asp-action="Index" class="btn btn-primary">Xem danh sách sản phẩm</a>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Nhom15_QLKho.Models.LoaiHangHoa>
+@{
+    ViewData["Title"] = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Loại Hàng Hóa</h2>
+<a asp-area="Admin" asp-controller="LoaiHangHoaManager" asp-action="Add">Thêm Loại Hàng Hóa</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loaiHangHoa in Model)
+        {
+            <tr>
+                <td>@loaiHangHoa.Id</td>
+                <td>@loaiHangHoa.TenLoai</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@loaiHangHoa.Id">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@loaiHangHoa.Id">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

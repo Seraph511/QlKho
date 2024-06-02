@@ -1,0 +1,9 @@
+﻿@model Nhom15_QLKho.Models.Kho
+
+<h2>Delete Kho</h2>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>Are you sure you want to delete @Model.TenKho?</p>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

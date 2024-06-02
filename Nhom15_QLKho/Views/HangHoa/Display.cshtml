@@ -1,0 +1,52 @@
+﻿@model Nhom15_QLKho.Models.HangHoa
+
+@{
+    ViewData["Tiêu đề"] = "Display";
+    Layout = "~/Views/Shared/_LayoutQLKho.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h4> Hang Hoa Images</h4>
+            <hr />
+            <img src="@Html.DisplayFor(model => model.ImageUrl)" alt="Alternate Text" class="img-fluid" />
+            <div>
+                <a class="btn btn-danger" asp-controller="HangHoa" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>HangHoa Information</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.TenHH)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.TenHH)
+                </dd>
+                
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.GiaTri)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.GiaTri)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.NhaCungCap)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.NhaCungCap.TenNCC)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.LoaiHangHoa)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.LoaiHangHoa.TenLoai)
+                </dd>
+                
+            </dl>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,17 @@
+﻿@model Nhom15_QLKho.Models.LoaiHangHoa
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Tiêu đề"] = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm Hàng Hóa</h2>
+
+<form asp-action="Add" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="TenLoai">Tên Loại</label>
+        <input asp-for="TenLoai" class="form-control" />
+        <span asp-validation-for="TenLoai" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+</form>

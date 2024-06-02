@@ -1,0 +1,12 @@
+﻿@model Nhom15_QLKho.Models.PhieuXuatKho
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Xác Nhận</h2>
+<form asp-action="Checkout" method="post">
+	<p>ID Phiếu Xuất Kho: @Model.Id</p>
+	<p>Ngày Xuất Kho: @Model.NgayXuat</p>
+	<p>Địa chỉ giao hàng: @Model.Address</p>
+	<p>Ghi chú: @Model.Notes</p>;
+	<button type="submit" class="btn btn-primary">Đặt Hàng</button>
+</form>

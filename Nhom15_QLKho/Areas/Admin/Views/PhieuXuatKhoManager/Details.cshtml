@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Nhom15_QLKho.Models.CT_PhieuXuatKho>
+
+<h1>PhieuXuatKho Details</h1>
+
+@if (!Model.Any())
+{
+    <p>No phieuXuatKho details found for this phieuXuatKho.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Hang Hoa</th>
+                <th>So luong xuat</th>
+                <th>Gia ca</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cT_PhieuXuatKho in Model)
+            {
+                <tr>
+                    <td>@cT_PhieuXuatKho.HangHoa.TenHH</td>
+                    <td>@cT_PhieuXuatKho.SoLuongXuat</td>
+                    <td>@cT_PhieuXuatKho.TongGiaTri</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

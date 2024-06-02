@@ -1,0 +1,45 @@
+﻿@{
+	ViewData["Title"] = "Index";
+	int numOfQuantity = 1;
+}
+
+@model IEnumerable<Nhom15_QLKho.Models.HangHoa>
+<section class="featured spad">
+	<div class="container">
+
+		<form asp-controller="HangHoa" asp-action="Index">
+			<p>
+				Name: <input type="text" name="SearchString" />
+				<input type="submit" value="Search" />
+			</p>
+		</form>
+
+		<div class="row featured__filter">
+			@foreach (var hangHoa in Model)
+			{
+				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+					<div class="featured__item">
+						<div class="featured__item__pic">
+							<ul class="featured__item__pic__hover">
+								<img src="@hangHoa.ImageUrl" alt="Alternate Text" />
+								<li><a href="#"><i class="fa fa-heart"></i></a></li>
+								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
+								<li><a asp-controller="CT_DonYeuCau" asp-action="AddToDon" asp-route-hangHoaId="@hangHoa.Id" asp-route-soLuongTon="@numOfQuantity"><i class="fa fa-shopping-don"></i></a></li>
+							</ul>
+						</div>
+
+						<div class="featured__item__text">
+
+							<h6><a asp-controller="HangHoa" asp-action="Display" asp-route-id="@hangHoa.Id">@hangHoa.TenHH</a></h6>
+							<h5><a asp-controller="HangHoa" asp-action="Display" asp-route-id="@hangHoa.Id">@hangHoa.GiaTri</a></h5>
+
+						</div>
+					</div>
+				</div>
+
+			}
+		</div>
+	</div>
+</section>
+
+

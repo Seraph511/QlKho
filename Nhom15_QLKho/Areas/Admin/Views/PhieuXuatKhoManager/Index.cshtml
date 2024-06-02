@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Nhom15_QLKho.Models.PhieuXuatKho>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="text-align:center">PhieuXuatKho Manager</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayXuat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TongGiaTri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                <span>User Name</span>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayXuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongGiaTri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.FullName)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<style>
+    .table {
+        width: 100%;
+        bphieuXuatKho-collapse: collapse;
+    }
+
+        .table th, .table td {
+            bphieuXuatKho: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #ddd;
+        }
+
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .table a:hover {
+                text-decoration: underline;
+            }
+
+</style>

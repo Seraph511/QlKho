@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KhoN15</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Nhom15_QLKho.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            background-image: url('https://t4.ftcdn.net/jpg/02/38/54/27/360_F_238542727_NW615u1wVMubefUtUb7OqFV8DfM3jAZx.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #FFD700 !important;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            margin-right: 1em;
+        }
+
+            .nav-link:hover {
+                color: #FFA500 !important;
+            }
+
+        .centered-text {
+            font-size: 4em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .smaller-text {
+            font-size: 2em;
+            color: antiquewhite;
+            text-align: center;
+            margin-top: -20px;
+        }
+
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+
+        .auth-box {
+            background-color: rgba(255, 165, 0, 0.7); /* Semi-transparent light orange background */
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+            .auth-box a {
+                display: block;
+                color: #333;
+                text-decoration: none;
+                margin: 0.5em 0;
+                font-size: 1.2em;
+                border: 1px solid #333;
+                border-radius: 5px;
+                padding: 10px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+                .auth-box a:hover {
+                    background-color: #007bff;
+                    color: white;
+                    border-color: #007bff;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="HangHoa" asp-action="Index">KhoN15-VietNam</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <div class="container">
+        <div class="centered-text">Kho N15 Xin Chào</div>
+        <div class="centered-text smaller-text">Kho Uy tín Hàng Đầu Việt Nam</div>
+        <div class="auth-container">
+            <div class="auth-box">
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

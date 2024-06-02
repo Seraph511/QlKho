@@ -1,0 +1,81 @@
+﻿@model Nhom15_QLKho.Models.CT_DonYeuCau
+@{
+	Layout = "~/Views/Shared/_Layou.cshtml";
+}
+<h2 style="text-align: center">Đơn Của Bạn</h2>
+<style>
+	/* Style for the table */
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+	}
+
+	/* Style for table headers */
+	th {
+		background-color: #f2f2f2;
+		border: 1px solid #dddddd;
+		padding: 8px;
+		text-align: left;
+	}
+
+	/* Style for table cells */
+	td {
+		border: 1px solid #dddddd;
+		padding: 8px;
+	}
+
+	/* Style for the remove link */
+	a {
+		color: #ff4500;
+		text-decoration: none;
+	}
+
+		/* Style for the checkout link */
+		a.checkout {
+			display: block;
+			width: 100px;
+			padding: 10px;
+			text-align: center;
+			background-color: #4caf50;
+			color: white;
+			text-decoration: none;
+			border-radius: 5px;
+		}
+
+			/* Style for the checkout link hover effect */
+			a.checkout:hover {
+				background-color: #45a049;
+			}
+
+</style>
+<table>
+	<tr>
+		<th>Hàng Hóa</th>
+		<th>Số Lượng</th>
+		<th>Ngày Tạo Đơn</th>
+
+		<th>Thao Tác</th>
+	</tr>
+	@foreach (var item in Model.Items)
+	{
+		<tr>
+			<td>@item.HangHoaId</td>
+			<td>@item.SoLuong</td>
+			<td>@item.NgayTaoDon\</td>
+
+			<td>
+				<a asp-action="RemoveFromCart" asp-route-productId="@item.HangHoaId">Xóa</a>
+			</td>
+		</tr>
+	}
+
+	<tr>
+		<td colspan="4"></td> <!-- Tạo một cell trống để căn chỉnh -->
+		<td>
+			<a asp-action="Checkout" asp-controller="ShoppingCart">Xác Nhận</a>
+		</td>
+	</tr>
+</table>
+
+<a asp-controller="Product" asp-action="Index" class="btn btn-primary">Xem danh sách hàng hóa</a>

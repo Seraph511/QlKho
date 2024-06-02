@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Nhom15_QLKho.Models.HangHoa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="text-align: center">HangHoa Manager</h2>
+
+<form asp-controller="HangHoaManager" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <!-- Bảng sản phẩm -->
+</table>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ten Hang Hoa</th>
+            <th>Gia tri</th>
+            <th>Kho</th>
+            <th>Vi tri hang</th>
+            <th>So luong ton</th>
+            <th>NhaCungCap</th>
+            <th>LoaiHangHoa</th>
+            
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hangHoa in Model)
+        {
+            <tr>
+                <td>@hangHoa.TenHH</td>
+                <td>@hangHoa.GiaTri</td>
+                <td>@hangHoa.Kho.TenKho</td>
+                <td>@hangHoa.ViTriHang</td>   
+                <td>@hangHoa.SoLuongTon</td>
+                <td>@hangHoa.NhaCungCap.TenNCC</td>
+                <td>@hangHoa.LoaiHangHoa.TenLoai</td>
+               
+                <td>
+                    <a asp-action="Display" asp-route-id="@hangHoa.Id">View</a>
+                    |
+                    <a asp-action="Update" asp-route-id="@hangHoa.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@hangHoa.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .table {
+        width: 100%;
+        bphieuXuatKho-collapse: collapse;
+    }
+
+        .table th, .table td {
+            bphieuXuatKho: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #ddd;
+        }
+
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .table a:hover {
+                text-decoration: underline;
+            }
+
+</style>
+
+<script>
+    document.getElementById('searchButton').addEventListener('click', function () {
+        var searchTerm = document.getElementById('searchInput').value;
+        var searchUrl = '@Url.Action("Search", "HangHoaManagerController")' + '?searchString=' + encodeURIComponent(searchTerm);
+
+        window.location.href = searchUrl;
+    });
+
+</script>

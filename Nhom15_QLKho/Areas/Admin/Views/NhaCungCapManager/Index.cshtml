@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Nhom15_QLKho.Models.NhaCungCap>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 style="text-align:center">NhaCungCap Manager</h2>
+
+<form asp-controller="NhaCungCapManager" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenNCC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiaChi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SDT)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNCC)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Display" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<style>
+    .table {
+        width: 100%;
+        bphieuXuatKho-collapse: collapse;
+    }
+
+        .table th, .table td {
+            bphieuXuatKho: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #ddd;
+        }
+
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            .table a:hover {
+                text-decoration: underline;
+            }
+
+</style>

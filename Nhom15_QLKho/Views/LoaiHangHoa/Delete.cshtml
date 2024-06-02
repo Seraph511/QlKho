@@ -1,0 +1,12 @@
+﻿@model Nhom15_QLKho.Models.LoaiHangHoa
+@{
+    ViewData["Tiêu đề"] = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Xóa Hàng Hóa</h2>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>Bạn có chắc chắn muốn xóa @Model.TenLoai không?</p>
+    <button type="submit" class="btn btn-danger">Xóa</button>
+</form>

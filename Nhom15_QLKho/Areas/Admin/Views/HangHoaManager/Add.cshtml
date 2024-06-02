@@ -1,0 +1,57 @@
+﻿@model Nhom15_QLKho.Models.HangHoa
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Add HangHoa</h2>
+<form asp-action="Add" method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label asp-for="TenHH">Name</label>
+		<input asp-for="TenHH" class="form-control" />
+		<span asp-validation-for="TenHH" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="GiaTri">Price</label>
+		<input asp-for="GiaTri" class="form-control" />
+		<span asp-validation-for="GiaTri" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="KhoId">Kho</label>
+		<select asp-for="KhoId" asp-items="ViewBag.Khos" class="form-control"></select>
+	</div>
+	<div class="form-group">
+		<label asp-for="ViTriHang">ViTriHang</label>
+		<input asp-for="ViTriHang" class="form-control" />
+		<span asp-validation-for="ViTriHang" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="SoLuongTon">SoLuongTon</label>
+		<input asp-for="SoLuongTon" class="form-control" />
+		<span asp-validation-for="SoLuongTon" class="text-danger"></span>
+	</div>
+	
+
+	<div class="form-group">
+		<label asp-for="LoaiHangHoaId">LoaiHangHoa</label>
+		<select asp-for="LoaiHangHoaId" asp-items="ViewBag.loaiHangHoas" class="form-control"></select>
+	</div>
+
+	<div class="form-group">
+		<label asp-for="NhaCungCapId">NhaCungCap</label>
+		<select asp-for="NhaCungCapId" asp-items="ViewBag.nhaCungCaps" class="form-control"></select>
+	</div>
+	
+	
+
+	<div class="form-group">
+		<label asp-for="ImageUrl">HangHoa Image</label>
+		<input type="file" asp-for="ImageUrl" class="form-control" />
+	</div>
+
+	<button type="submit" class="btn btn-primary">Add</button>
+</form>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KhoN15</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Nhom15_QLKho.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-vector/warehouse-interior-logistics-delivery-cargo-goods-postal-service_33099-1617.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+            
+        }
+
+         
+        .auth-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .auth-box {
+            background-color: white;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+            .auth-box a {
+                display: block;
+                color: #333;
+                text-decoration: none;
+                margin: 0.5em 0;
+                font-size: 1.2em;
+                border: 1px solid #333;
+                border-radius: 5px;
+                padding: 10px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+                .auth-box a:hover {
+                    background-color: #007bff;
+                    color: white;
+                    border-color: #007bff;
+                }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
